@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
-
+const validator = require("validator");
 const carSchema = mongoose.Schema({
-  brand: { type: String, required: [true, "la voiture doit avoir une marque"] },
+  brand: {
+    type: String,
+    required: [true, "la voiture doit avoir une marque"],
+  },
   model: {
     type: String,
     required: [true, "Veuillez specifier le modele de la voiture"],
@@ -21,7 +24,10 @@ const carSchema = mongoose.Schema({
     ],
     default: "Monospace",
   },
-
+  description: {
+    type: String,
+    required: [true, "Veuillez decrire votre vehicule"],
+  },
   yearOfManufacture: Date,
   color: {
     type: String,
@@ -64,7 +70,7 @@ const carSchema = mongoose.Schema({
     type: Number,
     required: [
       true,
-      "Veuillez specifier le nombre de kilometre qu'a parcourue le vehicule. Il est noté sur 10",
+      "Veuillez specifier le nombre de kilometre qu'a parcourue le vehicule",
     ],
     default: 0,
   },
@@ -85,7 +91,9 @@ const carSchema = mongoose.Schema({
       "Veuillez specifier le prix journalier de location du vehicule ",
     ],
   },
-  currentLocation: String,
+  currentLocation: {
+    type: String,
+  },
   lastMaintenanceDate: {
     type: Date,
   },

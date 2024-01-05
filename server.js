@@ -8,7 +8,7 @@ databaseURI = process.env.DATABASE_URL.replace(
   "<password>",
   process.env.DATABASE_PASSWORD
 );
-console.log(databaseURI);
+
 mongoose
   .connect(databaseURI, {})
   .then((connectionInfo) => {
